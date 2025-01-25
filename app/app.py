@@ -47,7 +47,7 @@ def login():
 @app.route('/dashboard')
 def dashboard():
     # Security Misconfiguration vulnerability (showing sensitive data)
-    users = User.query.all()
+    users = escape(User.query.all())
     return render_template('dashboard.html', users=users)
 
 # Insecure Direct Object References (IDOR) vulnerability in the route
