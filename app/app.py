@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+from flask import escape
 
 # Initialize Flask app and database
 app = Flask(__name__)
@@ -52,7 +53,7 @@ def dashboard():
 # Insecure Direct Object References (IDOR) vulnerability in the route
 @app.route('/user/<int:user_id>')
 def user_profile(user_id):
-    user = User.query.get(user_id)
+    user = escape(User.query.get(user_id))
     if not user:
         return "User Not Found", 404
     return jsonify({'username': user.username, 'id': user.id})
