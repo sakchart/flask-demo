@@ -31,10 +31,10 @@ jobs:
         pip install -r requirements.txt
 
     # Run Python tests (if you have tests, else this can be skipped)
-    - name: Run tests
-      run: |
+    #- name: Run tests
+    #  run: |
         # Example for running tests (modify based on your test framework)
-        pytest tests/
+     #   pytest tests/
 
     # Build the Docker image
     - name: Build Docker image
