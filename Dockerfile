@@ -1,5 +1,5 @@
 # Stage 1: Build the environment for Python app
-FROM python:3.9-slim AS build
+FROM python:3.14.3-slim AS build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -22,7 +22,7 @@ RUN pip install --upgrade pip && \
 COPY . .
 
 # Stage 2: Setup the final container image
-FROM python:3.9-slim
+FROM python:3.14.3-slim
 
 # Set the working directory for the app
 WORKDIR /app
